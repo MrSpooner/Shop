@@ -1,0 +1,111 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand text-white" href="/">ShopTop</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-white" href="/"
+            >товары <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-white"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            коллекции
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% for brand in brands %}
+            <a
+              class="dropdown-item"
+              href="{{url_for('get_brand', id=brand.id)}}"
+              >{{brand.name}}</a
+            >
+            {% endfor %}
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-white"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            категории
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% for category in categories %}
+            <a
+              class="dropdown-item"
+              href="{{url_for('get_category',id=category.id)}}"
+            >
+              {{category.name}}</a
+            >
+            {% endfor %}
+          </div>
+        </li>
+        {% if current_user.is_authenticated %}
+
+        <li class="nav-item">
+          <a href="{{url_for('customer_logout')}}" class="nav-link text-white">
+            выход</a
+          >
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a href="{{url_for('customer_register')}}" class="nav-link text-white"
+            >регистрация</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="{{url_for('customerLogin')}}" class="nav-link text-white"
+            >вход</a
+          >
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a href="{{url_for('getCart')}}" class="nav-link text-white">
+            корзина ({{ session['Shoppingcart']|length }})
+          </a>
+        </li>
+      </ul>
+
+      <form class="form-inline my-2 my-lg-0" action="{{url_for('result')}}">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Поиск"
+          aria-label="Search"
+          name="q"
+        />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          поиск
+        </button>
+      </form>
+
+      <a class="nav-link text-white">{{current_user.name}}</a>
+    </div>
+  </nav>
+</div>
+<!---============== END OF NAV BAR ==================-->
