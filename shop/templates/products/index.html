@@ -38,7 +38,7 @@
     <div class="row mt-4">
       <div class="col text-center">
         {% if brand.has_prev %}
-          <a href="{{url_for('get_brand',id=get_brand.id, page=brand.prev_num)}}"class="btn btn-sm btn-outline-info">previus</a>
+          <a href="{{url_for('get_brand',id=get_brand.id, page=brand.prev_num)}}"class="btn btn-sm btn-outline-info">пред.</a>
         {% endif %}
         {% if brand.total > 8 %}
        {% for page_num in brand.iter_pages(left_edge=1, right_edge=2, left_current=1,right_current=2) %}
@@ -96,7 +96,7 @@
       <div class="row mt-4">
         <div class="col text-center">
           {% if get_cat_prod.has_prev %}
-            <a href="{{url_for('get_category',id=get_cat.id, page=get_cat_prod.prev_num)}}"class="btn btn-sm btn-outline-info">previus</a>
+            <a href="{{url_for('get_category',id=get_cat.id, page=get_cat_prod.prev_num)}}"class="btn btn-sm btn-outline-info">пред.</a>
           {% endif %}
           {% if get_cat_prod.total > 8 %}
          {% for page_num in get_cat_prod.iter_pages(left_edge=1, right_edge=2, left_current=1,right_current=2) %}
@@ -153,7 +153,7 @@
       <div class="row mt-4">
         <div class="col text-center">
           {% if products.has_prev %}
-            <a href="{{url_for('home', page=products.prev_num)}}"class="btn btn-sm btn-outline-info">previus</a>
+            <a href="{{url_for('home', page=products.prev_num)}}"class="btn btn-sm btn-outline-info">пред.</a>
           {% endif %}
           {% if products.total> 8 %}
          {% for page_num in products.iter_pages(left_edge=1, right_edge=2, left_current=1,right_current=2) %}

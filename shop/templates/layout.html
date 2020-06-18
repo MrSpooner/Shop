@@ -1,27 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
-    {% if title %}
-    <title>{{title}}</title>
-    {% else %}
-    <title>ShopTop</title>
-    {% endif %}
-  </head>
-  <body>
-    <style>img {object-fit: cover;}</style>
-    {% block content %}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}" />
+  {% if title %}
+  <title>{{title}}</title>
+  {% else %}
+  <title>CougarMebel</title>
+  {% endif %}
+  <script
+    src="https://api-maps.yandex.ru/2.0-stable/?load=package.standard,package.geoObjects,package.geoQuery&amp;lang=ru-RU&amp;apikey=aa4ee1e3-038a-4afd-bd40-dba7a53639af "
+    type="text/javascript"></script>
+  <script src="https://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+  <script src="/static/js/find_closest_object.js" type="text/javascript"></script>
+</head>
 
-    {% endblock content %}
-<!-- min.css и min.js библиотеки скачаны из getbootstrap.com/docs/4.3/getting-started/introduction/ -->
-    <script src="{{url_for('static', filename='js/jquery-3.4.1.slim.min.js')}}" ></script>
-    <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
-  </body>
+<body>
+  <style>
+    img {
+      object-fit: cover;
+    }
+  </style>
+  {% block content %} {% endblock content %}
+  <!-- min.css и min.js библиотеки скачаны из getbootstrap.com/docs/4.3/getting-started/introduction/ -->
+  <script src="{{url_for('static', filename='js/jquery-3.4.1.slim.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</body>
+
 </html>
